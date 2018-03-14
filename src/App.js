@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { connect } from 'react-redux'
-import store, {addOutput} from './store'
+import {addOutput} from './store'
+import Codemirror from './Codemirror'
 
 class App extends Component {
 
   render() {
 
-    console.log(this.props.output)
+    // console.log(this.props.output)
     return (
       <div className="App">
         <header className="App-header">
@@ -20,15 +21,16 @@ class App extends Component {
         </p>
         <h1>output</h1>
         <ul>
-          {this.props.output.map(output => <li>{output}</li>)}
+          {this.props.output.map((output, i) => <li key={i}>{output}</li>)}
         </ul>
+        <Codemirror />
       </div>
     );
   }
 }
 
 const mapState = state => ({
-  output: state
+  output: state.arty
 })
 
 export default connect(mapState)(App);
