@@ -8,8 +8,8 @@ var commands = [
         indexes:["loop", "Luke", "loofa"], // These spoken words will trigger the execution of the command
     action:function(){ // Action to be executed when a index match with spoken word
         artyom.say("I'm sorry I can't do that Dave");
-        store.dispatch(addOutput('jk, lol'));
-        store.dispatch(addOutput(`for (let i = 0; i < arr.length; i++)`));
+        // store.dispatch(addOutput('jk, lol'));
+        store.dispatch(addOutput(`for (let i = 0; i < arr.length; i++) {}`));
         }
     },
     {
