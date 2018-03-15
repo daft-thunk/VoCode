@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import Arty from './arty'
-import { Provider } from 'react-redux'
-import store from './store'
+import Arty from './arty';
+import { Provider } from 'react-redux';
+import store from './store';
 
 import registerServiceWorker from './registerServiceWorker';
 
@@ -16,5 +16,5 @@ ReactDOM.render(
 );
 // registerServiceWorker();
 
-Arty()
-console.log('hi')
+Arty();
+console.log('Arty says hi from index.js');
