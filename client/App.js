@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import logo from '../src/logo.svg';
+import '../src/App.css';
 import { connect } from 'react-redux';
 import { addOutput } from './store';
-import CodeEditor from './CodeEditor';
+import {CodeEditor} from './components';
 
 /*eslint-disable react/prefer-stateless-function*/
 class App extends Component {

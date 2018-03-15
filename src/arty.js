@@ -1,5 +1,5 @@
 import Artyom from 'artyom.js';
-import store, { addOutput } from './store';
+import store, { addOutput } from '../client/store';
 const artyom = new Artyom();
 
 const commands = [
