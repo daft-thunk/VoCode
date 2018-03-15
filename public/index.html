@@ -27,6 +27,8 @@
       You need to enable JavaScript to run this app.
     </noscript>
     <div id="root"></div>
+    <button onclick="startRecording(this);">record</button>
+    <button onclick="stopRecording(this);" disabled>stop</button>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
@@ -37,5 +39,7 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+  <script src="/recorder.js"></script>
+  <script src="/helper.js"></script>
   </body>
 </html>
