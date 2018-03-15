@@ -1,6 +1,6 @@
 import Artyom from 'artyom.js';
 import store, { addOutput } from './store';
-const artyom = new Artyom();
+//const artyom = new Artyom();
 
 const commands = [
   {

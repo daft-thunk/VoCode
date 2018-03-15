@@ -7,33 +7,45 @@ var recorder;
 
 function startUserMedia(stream) {
   var input = audio_context.createMediaStreamSource(stream);
-  __log('Media stream created.');
+ // __log('Media stream created.');
 
   // Uncomment if you want the audio to feedback directly
   //input.connect(audio_context.destination);
   //__log('Input connected to audio context destination.');
 
   recorder = new Recorder(input);
-  __log('Recorder initialised.');
+  //__log('Recorder initialised.');
 }
 
 function startRecording(button) {
   recorder && recorder.record();
   button.disabled = true;
   button.nextElementSibling.disabled = false;
-  __log('Recording...');
+  //__log('Recording...');
 }
 
 function stopRecording(button) {
   recorder && recorder.stop();
   button.disabled = true;
   button.previousElementSibling.disabled = false;
-  __log('Stopped recording.');
+  //__log('Stopped recording.');
 
   // create WAV download link using audio data blob
   createDownloadLink();
 
   recorder.clear();
+}
+
+let blobify = (blob) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(blob);
+    reader.onloadend = function() {
+     let base64data = reader.result;
+     console.log(base64data);
+    }
+
+  // console.log('recordedBlob is: ', blob);
+  // console.log('base64', blobify(blob))
 }
 
 function createDownloadLink() {
@@ -42,6 +54,7 @@ function createDownloadLink() {
     var li = document.createElement('li');
     var au = document.createElement('audio');
     var hf = document.createElement('a');
+    let recordingslist = document.getElementById('recordingslist');
 
     au.controls = true;
     au.src = url;
@@ -50,7 +63,8 @@ function createDownloadLink() {
     hf.innerHTML = hf.download;
     li.appendChild(au);
     li.appendChild(hf);
-    recordingslist.appendChild(li);
+    //recordingslist.appendChild(li);
+    blobify(blob);
   });
 }
 
@@ -62,13 +76,13 @@ window.onload = function init() {
     window.URL = window.URL || window.webkitURL;
 
     audio_context = new AudioContext;
-    __log('Audio context set up.');
-    __log('navigator.getUserMedia ' + (navigator.getUserMedia ? 'available.' : 'not present!'));
+    //__log('Audio context set up.');
+    //__log('navigator.getUserMedia ' + (navigator.getUserMedia ? 'available.' : 'not present!'));
   } catch (e) {
     alert('No web audio support in this browser!');
   }
 
   navigator.getUserMedia({audio: true}, startUserMedia, function(e) {
-    __log('No live audio input: ' + e);
+    // __log('No live audio input: ' + e);
   });
 };
