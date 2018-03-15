@@ -1,12 +1,12 @@
-const ADD = 'add'
+const ADD = 'add';
 
-export const addOutput = (cmd) => ({type: ADD, cmd})
+export const addOutput = (cmd) => ({type: ADD, cmd});
 
 export default function(state = [], action) {
-  switch(action.type){
+  switch (action.type){
     case ADD:
-      return [...state, action.cmd]
+      return [...state, action.cmd];
     default:
-      return state
+      return state;
   }
 }
