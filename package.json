@@ -4,8 +4,9 @@
   "private": true,
   "dependencies": {
     "artyom.js": "^1.0.6",
-    "codemirror": "^5.35.0",
+    "axios": "^0.18.0",
     "body-parser": "^1.18.2",
+    "codemirror": "^5.35.0",
     "connect-session-sequelize": "^5.2.1",
     "cookie-parser": "^1.4.3",
     "express": "^4.16.3",
