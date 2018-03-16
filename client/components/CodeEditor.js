@@ -15,7 +15,7 @@ export class CodeEditor extends Component {
     this.state = {
       value: '<h1>I ♥ react-codemirror2</h1>\n222\n333\n444',
       newCommand: false,
-      cursor: {}
+      cursor: {line: 0, ch: 0, sticky: null}
     };
     this.getTextAroundCursor = this.getTextAroundCursor.bind(this);
     this.getCurrentValue = this.getCurrentValue.bind(this);
@@ -25,6 +25,7 @@ export class CodeEditor extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    console.log(this.props)
     if (this.props.output.length < nextProps.output.length) {
       // this.setState({ newCommand: true });
       const output = nextProps.output;
@@ -39,6 +40,8 @@ export class CodeEditor extends Component {
   }
 
   getTextAroundCursor(state) {
+    console.log('props', this.props)
+    console.log('state', state)
     const { cursor } = state;
     const arr = state.value.split('\n');
     const targetLine = arr[cursor.line];
