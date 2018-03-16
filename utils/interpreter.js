@@ -14,12 +14,14 @@ const commands = {
 }
 
 const interpreter = (speech) => {
-  let commandWords = speech.split(commands).filter(word => commands[word] !== undefined)
+
+  let commandWords = speech.split(' ').filter(word => commands[word] !== undefined)
   let currCommand;
-  while (commandWords.length) {
+  // while (commandWords.length) {
     currCommand = commandWords.shift();
+    console.log(currCommand);
     return commands[currCommand]();
-  }
+  // }
 }
 
 export default interpreter;
