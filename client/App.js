@@ -3,7 +3,7 @@ import logo from '../src/logo.svg';
 import '../src/App.css';
 import { connect } from 'react-redux';
 import { addOutput } from './store';
-import {CodeEditor} from './components';
+import {CodeEditor, Mic} from './components';
 
 /*eslint-disable react/prefer-stateless-function*/
 class App extends Component {
@@ -18,6 +18,7 @@ class App extends Component {
         <div className="flex">
           <div style={{flex: 3}}>
             <CodeEditor />
+            <Mic />
           </div>
           <div style={{flex: 1}}>
             <h1>output</h1>
