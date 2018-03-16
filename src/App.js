@@ -4,6 +4,7 @@ import './App.css';
 import { connect } from 'react-redux';
 import { addOutput } from './store';
 import CodeEditor from './CodeEditor';
+import WavRecorder from './WavRecorder';
 
 /*eslint-disable react/prefer-stateless-function*/
 class App extends Component {
@@ -11,6 +12,7 @@ class App extends Component {
     // console.log(this.props.output)
     return (
       <div className="App">
+      <WavRecorder />
         <header className="App-header">
           <h1>VOCODE</h1>
           <p className="App-intro">Add code snippets with your voice</p>

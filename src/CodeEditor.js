@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Controlled as CodeMirror } from 'react-codemirror2';
 import { connect } from 'react-redux';
+import Arty from './arty';
 
 require('codemirror/lib/codemirror.css');
 require('codemirror/theme/material.css');
@@ -24,6 +25,20 @@ export class CodeEditor extends Component {
     this.setCursorPositionToState = this.setCursorPositionToState.bind(this);
   }
 
+  componentDidMount() {
+    // Arty();
+    // console.log('Arty says hi from code editor');
+
+    function KeyPress(e) {
+      var evtobj = window.event ? event : e;
+      if (evtobj.keyCode == 49 && evtobj.ctrlKey) {
+        Arty();
+      }
+    }
+
+    document.onkeydown = KeyPress;
+  }
+
   componentWillReceiveProps(nextProps) {
     if (this.props.output.length < nextProps.output.length) {
       // this.setState({ newCommand: true });
@@ -32,7 +47,10 @@ export class CodeEditor extends Component {
       this.setState(prevState => {
         const prevValue = this.getTextAroundCursor(prevState);
         return {
-          value: prevValue.before.join('\n') + newCommand + prevValue.after.join('\n')
+          value:
+            prevValue.before.join('\n') +
+            newCommand +
+            prevValue.after.join('\n')
         };
       });
     }
@@ -111,7 +129,7 @@ export class CodeEditor extends Component {
         }}
         onBlur={evt => {
           console.log('BLUR:', evt);
-              }}
+        }}
         onBeforeChange={(editor, data, value) => {
           this.setState({ value });
         }}
