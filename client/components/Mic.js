@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Recorder from '../../public/recorder.js';
 import axios from 'axios';
-
+import store, { addOutputThunk } from '../store';
 
 export default class Mic extends Component {
   constructor(props) {
@@ -21,16 +21,7 @@ export default class Mic extends Component {
     reader.readAsDataURL(blob);
     reader.onloadend = function() {
      let base64data = reader.result.split(',')[1];
-     axios.post('https://speech.googleapis.com/v1/speech:recognize?key=AIzaSyBxs-oE9FfcxdCeLOgxP6Ia_ufy8QzijN0', {
-      "config":{
-       "encoding": "LINEAR16",
-       "sampleRateHertz": 44100,
-       "languageCode": "en-US"
-     },
-     "audio": {
-       "content": base64data
-     }
-  }).then(res => console.log(res.data.results[0].alternatives[0]))
+    store.dispatch(addOutputThunk(base64data))
     }
   }
 
