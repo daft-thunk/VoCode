@@ -40,6 +40,8 @@ export default class Mic extends Component {
       // console.log(blob)
       this.blobify(blob);
     });
+    this.state.recorder.stop()
+    this.state.recorder.clear()
   }
 
   startUserMedia(stream) {
