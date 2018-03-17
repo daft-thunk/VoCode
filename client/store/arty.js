@@ -1,4 +1,5 @@
 import axios from 'axios'
+import interpreter from '../../utils/interpreter'
 const ADD = 'add';
 
 export const addOutput = (snippet) => ({type: ADD, snippet});
@@ -16,7 +17,7 @@ export const addOutputThunk = (base64data) => {
      }
   }).then(res => {
     console.log(res.data)
-    dispatch(addOutput(res.data.results[0].alternatives[0].transcript))
+    dispatch(addOutput(interpreter(res.data.results[0].alternatives[0].transcript)))
   })
   }
 }
