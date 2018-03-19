@@ -27,7 +27,7 @@ export class CodeEditor extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log(this.props)
+    console.log(this.props);
     if (this.props.output.length < nextProps.output.length) {
       // this.setState({ newCommand: true });
       const output = nextProps.output;
@@ -42,12 +42,25 @@ export class CodeEditor extends Component {
   }
 
   loadFile(event) {
-    console.log('----Attempt to Load---+=++===+++', event.target.files[0]);
+    const loaded = (evt) => {
+      let fileString = evt.target.result;
+      this.setState({value: fileString});
+      console.log(fileString);
+    };
+
+    const file = event.target.files[0];
+    console.log('----Attempt to Load---+=++===+++', file);
+    let reader = new FileReader();
+
+    reader.onload = loaded;
+    reader.readAsText(file, 'UTF-8');
+
+
   }
 
   getTextAroundCursor(state) {
-    console.log('props', this.props)
-    console.log('state', state)
+    console.log('props', this.props);
+    console.log('state', state);
     const { cursor } = state;
     const arr = state.value.split('\n');
     const targetLine = arr[cursor.line];
