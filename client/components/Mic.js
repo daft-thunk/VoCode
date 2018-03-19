@@ -54,12 +54,10 @@ class Mic extends Component {
 
   parseCommand(input){
     const words = input.split(' ')
-    console.log(words)
     const parsed = words.map(word =>{
       if (commands[word]) return `♥${word}♥`
       else return word
     })
-    console.log('parsed', parsed)
     return parsed
   }
 
@@ -91,7 +89,6 @@ class Mic extends Component {
 
   render() {
     const parsedCommands = this.props.commands.map(this.parseCommand)
-    console.log(parsedCommands)
     document.onkeydown = () => this.keyDown(this.state.recorder)
     document.onkeyup = () => this.keyUp(this.state.recorder, this.stopRecording)
     return (
