@@ -1,8 +1,10 @@
 import axios from 'axios'
 import interpreter from '../../utils/interpreter'
+import { cmdOutput } from './commands'
 const ADD = 'add';
 
 export const addOutput = (snippet) => ({type: ADD, snippet});
+
 
 export const addOutputThunk = (base64data) => {
   return dispatch => {
@@ -10,14 +12,18 @@ export const addOutputThunk = (base64data) => {
       config: {
        encoding: 'LINEAR16',
        sampleRateHertz: 44100,
-       languageCode: 'en-US'
+       languageCode: 'en-US',
+       speechContexts: {
+         phrases: ['function']
+       }
      },
      audio: {
        content: base64data
      }
   }).then(res => {
-    console.log(res.data)
-    dispatch(addOutput(interpreter(res.data.results[0].alternatives[0].transcript)))
+    const parsed = res.data.results[0].alternatives[0].transcript
+    dispatch(addOutput(interpreter(parsed)))
+    dispatch(cmdOutput(parsed))
   })
   }
 }
@@ -26,7 +32,8 @@ export const addOutputThunk = (base64data) => {
 export default function(state = [], action) {
   switch (action.type){
     case ADD:
-      return [...state, action.snippet];
+      if (action.snippet) return [...state, action.snippet];
+      else return state
     default:
       return state;
   }

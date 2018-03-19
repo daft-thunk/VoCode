@@ -25,7 +25,6 @@ export class CodeEditor extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log(this.props)
     if (this.props.output.length < nextProps.output.length) {
       // this.setState({ newCommand: true });
       const output = nextProps.output;
@@ -40,8 +39,6 @@ export class CodeEditor extends Component {
   }
 
   getTextAroundCursor(state) {
-    console.log('props', this.props)
-    console.log('state', state)
     const { cursor } = state;
     const arr = state.value.split('\n');
     const targetLine = arr[cursor.line];
@@ -74,7 +71,6 @@ export class CodeEditor extends Component {
       console.log('VALUE', this.state.value, output);
       return this.state.value;
     }
-    console.log('VALUE / NEW COMMAND', this.state.value, output);
     // this.setState({newCommand: false})
     // const newText = this.state.value + output[output.length - 1]
 
@@ -104,7 +100,6 @@ export class CodeEditor extends Component {
         options={options}
         onCursorActivity={evt => {
           // console.log('CODEMIRROR',this.codemirror)
-          console.log('CURSOR MOVED:', this.getCursorPosition());
           // console.log(evt)
           Promise.resolve(
             this.setCursorPositionToState(this.getCursorPosition())
