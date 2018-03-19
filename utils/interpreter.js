@@ -1,6 +1,5 @@
-import component from './templates/component'
-import store from './templates/store'
-import reducer from './templates/reducer'
+import { component, store, reducer } from './templates'
+
 const commands = {
   'while': () => {
     return 'while (Josh === Salty){\nreturn tear\n}'
