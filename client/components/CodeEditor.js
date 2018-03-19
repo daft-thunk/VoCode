@@ -90,10 +90,8 @@ export class CodeEditor extends Component {
   getCurrentValue() {
     const { output } = this.props;
     if (!output || !output.length || !this.state.newCommand) {
-      console.log('VALUE', this.state.value, output);
       return this.state.value;
     }
-    console.log('VALUE / NEW COMMAND', this.state.value, output);
     // this.setState({newCommand: false})
     // const newText = this.state.value + output[output.length - 1]
 
@@ -124,7 +122,6 @@ export class CodeEditor extends Component {
         options={options}
         onCursorActivity={evt => {
           // console.log('CODEMIRROR',this.codemirror)
-          console.log('CURSOR MOVED:', this.getCursorPosition());
           // console.log(evt)
           Promise.resolve(
             this.setCursorPositionToState(this.getCursorPosition())

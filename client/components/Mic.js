@@ -3,8 +3,9 @@ import { connect } from 'react-redux';
 import Recorder from '../../public/recorder.js';
 import axios from 'axios';
 import store, { addOutputThunk } from '../store';
+import { commands } from '../../utils/interpreter'
 
-export default class Mic extends Component {
+class Mic extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -14,7 +15,23 @@ export default class Mic extends Component {
     this.startUserMedia = this.startUserMedia.bind(this);
     this.stopRecording = this.stopRecording.bind(this);
     this.blobify = this.blobify.bind(this);
+    this.keyDown = this.keyDown.bind(this);
+    this.keyUp = this.keyUp.bind(this);
   }
+
+  keyDown(recorder) {
+    var evtobj = window.event ? event : e;
+    if (evtobj.ctrlKey) {
+      this.state.recorder.record()
+    }
+  }
+
+  keyUp(recorder) {
+      var evtobj = window.event ? event : e;
+      if (evtobj.key === 'Control') {
+        this.stopRecording();
+      }
+    }
 
   blobify(blob) {
     const reader = new FileReader();
@@ -35,13 +52,24 @@ export default class Mic extends Component {
     this.state.recorder.clear()
   }
 
+  parseCommand(input){
+    const words = input.split(' ')
+    console.log(words)
+    const parsed = words.map(word =>{
+      if (commands[word]) return `♥${word}♥`
+      else return word
+    })
+    console.log('parsed', parsed)
+    return parsed
+  }
+
   startUserMedia(stream) {
     let input = this.state.audio_context.createMediaStreamSource(stream);
 
     this.setState({recorder: new Recorder(input)});
   }
 
-  componentDidMount() {
+  componentWillMount() {
     try {
       // webkit shim
       window.AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -59,16 +87,23 @@ export default class Mic extends Component {
       alert('No web audio support in this browser!');
     }
 
-  }
+    }
 
   render() {
-    console.log(this.state.recorder);
+    const parsedCommands = this.props.commands.map(this.parseCommand)
+    console.log(parsedCommands)
+    document.onkeydown = () => this.keyDown(this.state.recorder)
+    document.onkeyup = () => this.keyUp(this.state.recorder, this.stopRecording)
     return (
       <div>
-        <h1>Hello Mic</h1>
-        <button onClick={() => this.state.recorder.record()}>Start</button>
-        <button onClick={() => this.stopRecording()}>Stop</button>
+        {parsedCommands.map(command => <h3 key={command.join(' ')}> {command.join(' ')} </h3>)}
       </div>
     )
   }
 }
+
+const mapProps = state => ({
+  commands: state.commands
+})
+
+export default connect(mapProps)(Mic);
