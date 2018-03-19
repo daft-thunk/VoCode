@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Controlled as CodeMirror } from 'react-codemirror2';
 import { connect } from 'react-redux';
+import FileSystem from './FileSystem';
 
 require('codemirror/lib/codemirror.css');
 require('codemirror/theme/material.css');
@@ -22,9 +23,11 @@ export class CodeEditor extends Component {
     this.getCursorPosition = this.getCursorPosition.bind(this);
     this.setCursorPosition = this.setCursorPosition.bind(this);
     this.setCursorPositionToState = this.setCursorPositionToState.bind(this);
+    this.loadFile = this.loadFile.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
+    console.log(this.props);
     if (this.props.output.length < nextProps.output.length) {
       // this.setState({ newCommand: true });
       const output = nextProps.output;
@@ -38,7 +41,26 @@ export class CodeEditor extends Component {
     }
   }
 
+  loadFile(event) {
+    const loaded = (evt) => {
+      let fileString = evt.target.result;
+      this.setState({value: fileString});
+      console.log(fileString);
+    };
+
+    const file = event.target.files[0];
+    console.log('----Attempt to Load---+=++===+++', file);
+    let reader = new FileReader();
+
+    reader.onload = loaded;
+    reader.readAsText(file, 'UTF-8');
+
+
+  }
+
   getTextAroundCursor(state) {
+    console.log('props', this.props);
+    console.log('state', state);
     const { cursor } = state;
     const arr = state.value.split('\n');
     const targetLine = arr[cursor.line];
@@ -91,6 +113,7 @@ export class CodeEditor extends Component {
       autofocus: true
     };
     return (
+      <div>
       <CodeMirror
         ref={codemirror => {
           this.codemirror = codemirror;
@@ -122,6 +145,8 @@ export class CodeEditor extends Component {
           // })
         }}
       />
+      <FileSystem text={this.state.value} loadFile={this.loadFile} />
+      </div>
     );
   }
 }
