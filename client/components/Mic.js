@@ -56,7 +56,7 @@ class Mic extends Component {
     const words = input.split(' ')
     console.log(words)
     const parsed = words.map(word =>{
-      if (commands[word]) return `>>${word}<<`
+      if (commands[word]) return `♥${word}♥`
       else return word
     })
     console.log('parsed', parsed)

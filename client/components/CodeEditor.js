@@ -68,7 +68,6 @@ export class CodeEditor extends Component {
   getCurrentValue() {
     const { output } = this.props;
     if (!output || !output.length || !this.state.newCommand) {
-      console.log('VALUE', this.state.value, output);
       return this.state.value;
     }
     // this.setState({newCommand: false})
