@@ -1,3 +1,6 @@
+import component from './templates/component'
+import store from './templates/store'
+import reducer from './templates/reducer'
 const commands = {
   'while': () => {
     return 'while (Josh === Salty){\nreturn tear\n}'
@@ -10,7 +13,10 @@ const commands = {
   },
   'redux': () => {
     return 'redux'
-  }
+  },
+  'component': () => component,
+  'store': () => store,
+  'reducer': () => reducer
 }
 
 const interpreter = (speech) => {

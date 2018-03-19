@@ -13,7 +13,7 @@ export class CodeEditor extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: '<h1>I ♥ react-codemirror2</h1>\n222\n333\n444',
+      value: 'I ♥ VoCode',
       newCommand: false,
       cursor: {line: 0, ch: 0, sticky: null}
     };
@@ -87,7 +87,7 @@ export class CodeEditor extends Component {
   }
   render() {
     const options = {
-      mode: 'xml',
+      mode: 'javascript',
       theme: 'material',
       lineNumbers: true,
       indentUnit: 2,

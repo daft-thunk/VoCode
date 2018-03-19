@@ -16,9 +16,9 @@ class App extends Component {
         <div className="flex">
           <div style={{flex: 3}}>
             <CodeEditor />
-            <Mic />
           </div>
           <div style={{flex: 1}}>
+          <Mic />
           </div>
         </div>
       </div>
