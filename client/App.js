@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../src/App.css';
 import { connect } from 'react-redux';
-import {CodeEditor, Mic} from './components';
+import {CodeEditor, Mic } from './components';
 
 /*eslint-disable react/prefer-stateless-function*/
 class App extends Component {

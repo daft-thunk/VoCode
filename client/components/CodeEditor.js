@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Controlled as CodeMirror } from 'react-codemirror2';
 import { connect } from 'react-redux';
+import FileSystem from './FileSystem';
 
 require('codemirror/lib/codemirror.css');
 require('codemirror/theme/material.css');
@@ -22,6 +23,7 @@ export class CodeEditor extends Component {
     this.getCursorPosition = this.getCursorPosition.bind(this);
     this.setCursorPosition = this.setCursorPosition.bind(this);
     this.setCursorPositionToState = this.setCursorPositionToState.bind(this);
+    this.loadFile = this.loadFile.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -37,6 +39,10 @@ export class CodeEditor extends Component {
         };
       });
     }
+  }
+
+  loadFile(event) {
+    console.log('----Attempt to Load---+=++===+++', event.target.files[0]);
   }
 
   getTextAroundCursor(state) {
@@ -96,6 +102,7 @@ export class CodeEditor extends Component {
       autofocus: true
     };
     return (
+      <div>
       <CodeMirror
         ref={codemirror => {
           this.codemirror = codemirror;
@@ -128,6 +135,8 @@ export class CodeEditor extends Component {
           // })
         }}
       />
+      <FileSystem text={this.state.value} loadFile={this.loadFile} />
+      </div>
     );
   }
 }
