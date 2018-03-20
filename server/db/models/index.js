@@ -1,8 +1,11 @@
 const User = require('./user');
-const Module = require('./module');
+const Snippet = require('./snippet');
 
+Snippet.belongsTo(User, {as: 'Creator'});
+
+Snippet.belongsToMany(User, {through: 'snippetToUser'});
 
 module.exports = {
   User,
-  module
+  Snippet
 };
