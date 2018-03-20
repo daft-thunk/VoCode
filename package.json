@@ -25,7 +25,7 @@
     "redux-devtools-extension": "^2.13.2",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
-    "sequelize": "^4.36.1",
+    "sequelize": "^4.37.3",
     "socket.io": "^2.0.4",
     "style-loader": "^0.20.3",
     "webpack": "^4.1.1",
