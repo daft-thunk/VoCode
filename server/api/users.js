@@ -53,3 +53,10 @@ router.delete('/:id', (req, res, next) => {
     .then(() => res.sendStatus(204))
     .catch(next);
 });
+
+router.put('/:id/snippets/:snippetId', (req, res, next) => {
+  Snippet.findById(req.params.snippetId)
+    .then(snippet => snippet.addUser(req.params.id))
+    .then(snippets => res.json(snippets))
+    .catch(next);
+});

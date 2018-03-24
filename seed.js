@@ -71,13 +71,13 @@ function createUsers() {
 async function associateSnippets() {
   const snippets = await Snippet.findAll();
   // console.log(users);
-  await snippets[0].addUsers([1, 2, 3, 5]);
+  await snippets[0].addUsers([1, 2, 3]);
   await snippets[0].update({creatorId: 1});
-  await snippets[1].addUsers([2, 3, 4, 5]);
+  await snippets[1].addUsers([2, 3, 4]);
   await snippets[1].update({creatorId: 3});
-  await snippets[2].addUsers([2, 4, 5]);
+  await snippets[2].addUsers([2, 4]);
   await snippets[2].update({creatorId: 3});
-  await snippets[3].addUsers([1, 2, 3, 4, 5]);
+  await snippets[3].addUsers([1, 2, 3, 4]);
   await snippets[3].update({creatorId: 2});
 }
 
