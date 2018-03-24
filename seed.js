@@ -12,15 +12,18 @@ const Promise = require('bluebird');
 function generateSnippets() {
   let data = [{
     command: 'hello',
-    code: 'Hello World!'
+    code: 'Hello World!',
+    description: "A short 'hello world' function"
   },
   {
     command: 'Jake',
-    code: 'const Jake = coding'
+    code: 'const Jake = coding',
+    description: 'An eloquent snippet'
   },
   {
     command: 'switch',
-    code: "switch(var) {\n\tcase 'case1':\n\t\tconsole.log('case1')\n}"
+    code: "switch(var) {\n\tcase 'case1':\n\t\tconsole.log('case1')\n}",
+    description: 'switch statement boilerplate'
   },
   {
     command: 'random',
