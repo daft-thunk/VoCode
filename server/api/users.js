@@ -54,7 +54,7 @@ router.delete('/:id', (req, res, next) => {
     .catch(next);
 });
 
-router.put('/:id/snippets/:snippetId', (req, res, next) => {
+router.post('/:id/snippets/:snippetId', (req, res, next) => {
   Snippet.findById(req.params.snippetId)
     .then(snippet => snippet.addUser(req.params.id))
     .then(snippets => res.json(snippets))
