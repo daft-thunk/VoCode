@@ -1,4 +1,4 @@
-import { component, store, reducer } from './templates'
+import { component, store, reducer, express } from './templates'
 
 export const commands = {
   'while': () => {
@@ -7,12 +7,16 @@ export const commands = {
   'for': () => {
     return 'for(let i = 0; i < array.length; i++){\n}'
   },
-  'function': () => {
-    return 'const funcName = (args) => {}'
+  'function': (input) => {
+    return `const funcName = (args) => {}`
+  },
+  'string': (input) => {
+    return `"${input.slice(7)}"`
   },
   'component': () => component,
   'store': () => store,
-  'reducer': () => reducer
+  'reducer': () => reducer,
+  'express': () => express
 }
 
 const interpreter = (speech) => {
@@ -21,7 +25,7 @@ const interpreter = (speech) => {
   let currCommand;
   // while (commandWords.length) {
     currCommand = commandWords.shift();
-    if (commands[currCommand]) return commands[currCommand]();
+    if (commands[currCommand]) return commands[currCommand](speech);
     else console.error(`Command ${speech} not recognized`)
   // }
 }
