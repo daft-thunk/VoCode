@@ -28,8 +28,8 @@ if (!adminCheck(req)) {
 router.get('/:id/snippets', (req, res, next) => {
   Snippet.findAll({where: {creatorId: req.params.id}})
     .then(snippets => res.json(snippets))
-    .catch(next)
-})
+    .catch(next);
+});
 
 
 // get all snippets this user is associated with
@@ -38,7 +38,7 @@ router.get('/:id/snippets/all', (req, res, next) => {
     .then(user => user.getSnippets())
     .then(snippets => res.json(snippets))
     .catch(next);
-})
+});
 
 router.put('/:id', (req, res, next) => {
   User.findById(req.params.id)
@@ -56,8 +56,10 @@ router.delete('/:id', (req, res, next) => {
 
 router.post('/:id/snippets/:snippetId', (req, res, next) => {
   Snippet.findById(req.params.snippetId)
-    .then(snippet => snippet.addUser(req.params.id))
-    .then(snippets => res.json(snippets))
+    .then(snippet => {
+      snippet.addUser(req.params.id)
+      .then(() => res.json(snippet))
+    })
     .catch(next);
 });
 
