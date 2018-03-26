@@ -18,7 +18,7 @@ router.get('/:id', (req, res, next) => {
 
 // add a snippet
 router.post('/', (req, res, next) => {
-  Snippet.create({creatorId: req.body.userId, command: req.body.command, code: req.body.code})
+  Snippet.create({creatorId: req.body.userId, command: req.body.command, code: req.body.code, description: req.body.description})
     .then(snippet => res.json(snippet))
     .catch(next);
 });
