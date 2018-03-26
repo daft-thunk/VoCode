@@ -12,15 +12,18 @@ const Promise = require('bluebird');
 function generateSnippets() {
   let data = [{
     command: 'hello',
-    code: 'Hello World!'
+    code: 'Hello World!',
+    description: "A short 'hello world' function"
   },
   {
     command: 'Jake',
-    code: 'const Jake = coding'
+    code: 'const Jake = coding',
+    description: 'An eloquent snippet'
   },
   {
     command: 'switch',
-    code: "switch(var) {\n\tcase 'case1':\n\t\tconsole.log('case1')\n}"
+    code: "switch(var) {\n\tcase 'case1':\n\t\tconsole.log('case1')\n}",
+    description: 'switch statement boilerplate'
   },
   {
     command: 'random',
@@ -45,6 +48,17 @@ function generateUsers() {
   );
 }
 
+async function generateGuest() {
+  return User.create({
+    firstName: 'guest',
+    lastName: 'guest',
+    email: 'guest@guest.com',
+    password: '123',
+    passwordUpdateDate: faker.date.recent(100),
+    mailingAddress: `${faker.address.streetAddress()}\n$`
+  });
+}
+
 function createSnippets() {
   return Promise.map(generateSnippets(), snippet => snippet.save());
 }
@@ -52,6 +66,7 @@ function createSnippets() {
 function createUsers() {
   return Promise.map(generateUsers(), user => user.save());
 }
+
 
 async function associateSnippets() {
   const snippets = await Snippet.findAll();
@@ -74,6 +89,9 @@ async function seed() {
 
   console.log('seeding Users');
   await createUsers();
+
+  console.log('add guest');
+  await generateGuest();
 
   console.log('add associations');
   await associateSnippets();

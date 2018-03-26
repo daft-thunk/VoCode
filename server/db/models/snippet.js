@@ -9,6 +9,9 @@ const Snippet = db.define('snippet', {
   code: {
     type: Sequelize.TEXT,
     allowNull: false
+  },
+  description: {
+    type: Sequelize.TEXT
   }
 });
 
