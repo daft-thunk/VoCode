@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {User, Snippet} = require('../db/models');
+const {User, Snippet, SnippetUser} = require('../db/models');
 module.exports = router;
 
 // this should be moved to an admin route
@@ -58,5 +58,13 @@ router.post('/:id/snippets/:snippetId', (req, res, next) => {
   Snippet.findById(req.params.snippetId)
     .then(snippet => snippet.addUser(req.params.id))
     .then(snippets => res.json(snippets))
+    .catch(next);
+});
+
+router.delete('/:id/snippets/:snippetId', (req, res, next) => {
+  // console.log('snippetId', req.params.snippetId)
+  // console.log('userId', req.params.id)
+  SnippetUser.destroy({where: {userId: req.params.id, snippetId: req.params.snippetId}})
+    .then(() => res.sendStatus(204))
     .catch(next);
 });
