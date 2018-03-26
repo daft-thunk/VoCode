@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "antd": "^3.3.3",
     "artyom.js": "^1.0.6",
     "axios": "^0.18.0",
     "body-parser": "^1.18.2",
