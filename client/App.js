@@ -39,7 +39,7 @@ export default function App(){
             </div>
             <div>
               <h1>Add your own!</h1>
-              <p>Vocode comes out of the box with useful macros with React and Node developers in mind. Not in that group? No problem! Vocode give you the ability to create your own dictionary if snippets. Simply add the command and Vocode will listen and execute your new snippet. </p>
+              <p>Vocode comes out of the box with useful macros with React and Node developers in mind. Not in that group? No problem! Vocode give you the ability to create your own dictionary of snippets. Simply add the command and Vocode will listen and execute your new snippet. </p>
             </div>
           </div>
         </Content>
