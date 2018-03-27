@@ -31,7 +31,7 @@ export default function App(){
           <div className="second-frame flex-around">
             <div>
               <h1>Look mom no hands!</h1>
-              <p>Simply tell Vocode what code snippet you would like generated and BAM, it's available in you clipboard. Vocode is operates in the background and can be used in a variety of applications such as Visual Studio Code and Repl.it. </p>
+              <p>Simply tell Vocode what code snippet you would like generated and BAM, it's available in you clipboard. Vocode operates in the background and can be used in a variety of applications such as Visual Studio Code and Repl.it. </p>
             </div>
             <div>
               <h1>Take care of yourself.</h1>
