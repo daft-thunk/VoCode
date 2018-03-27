@@ -26,7 +26,7 @@ export default function App(){
             <Carousel autoplay>
               <div style={{height: '400px', background: 'url(https://www.sheffield.ac.uk/polopoly_fs/1.761228!/image/digital-coding-785.jpg)'}} />
               <div style={{height: '400px', background: 'url(https://images.unsplash.com/photo-1456406644174-8ddd4cd52a06?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=ce688dc72023ad0264348abbc506bf40&auto=format&fit=crop&w=1648&q=80)'}} />
-              <div style={{height: '400px', background: 'url(https://images.unsplash.com/photo-1489438497675-d1a8d6e0632e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9c788b591f6863b3c79475b5712739a9&auto=format&fit=crop&w=1573&q=80)'}} />>
+              <div style={{height: '400px', background: 'url(https://images.unsplash.com/photo-1489438497675-d1a8d6e0632e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9c788b591f6863b3c79475b5712739a9&auto=format&fit=crop&w=1573&q=80)'}} />
             </Carousel>
           <div className="second-frame flex-around">
             <div>
