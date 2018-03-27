@@ -40,9 +40,10 @@ router.get('/:id/snippets/all', (req, res, next) => {
     .catch(next);
 })
 
+//update user information
 router.put('/:id', (req, res, next) => {
   User.findById(req.params.id)
-    .then(foundUser => foundUser.update({role: req.body.role}))
+    .then(foundUser => foundUser.update(req.body))
     .then(updatedUser => res.json(updatedUser))
     .catch(next);
 });
