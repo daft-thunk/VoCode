@@ -39,6 +39,18 @@ const User = db.define('user', {
   passwordUpdateDate: {
     type: Sequelize.DATE,
     defaultValue: Date.now()
+  },
+  githubURL: {
+    type: Sequelize.STRING,
+    defaultValue: 'github.com'
+  },
+  stackoverflowURL: {
+    type: Sequelize.STRING,
+    defaultValue: 'stackoverflow.com'
+  },
+  waffleURL: {
+    type: Sequelize.STRING,
+    defaultValue: 'waffle.io'
   }
 }, {
   getterMethods: {
