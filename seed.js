@@ -51,9 +51,9 @@ function generateUsers() {
 
 async function generateGuest() {
   return User.create({
-    firstName: 'guest',
-    lastName: 'guest',
-    email: 'guest@guest.com',
+    firstName: 'Thomas',
+    lastName: 'Bangalter',
+    email: 'guest@daft-thunk.com',
     password: '123',
     passwordUpdateDate: faker.date.recent(100),
     mailingAddress: `${faker.address.streetAddress()}\n$`
