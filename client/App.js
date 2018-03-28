@@ -16,7 +16,7 @@ export default function App(){
                   style={{ lineHeight: '64px' }}
                 >
                   <Menu.Item key="1"><a href="https://github.com/daft-thunk/electricVocode#vocode"><Icon type="profile" />Docs</a></Menu.Item>
-                  <Menu.Item key="2"><a href="https://mega.nz/#!y7wSGAiT!mDZE1u5UJQ85xlo5ot5jnQQlR7P4hMZcKnYrzaqGsPg"><Icon type="download" />Download</a></Menu.Item>
+                  <Menu.Item key="2"><a href="https://mega.nz/#!C3BDTZQJ!4_gzzT3kEkZTW6mSFiB0ARVzRaDYEauqlgyMThjV7jk"><Icon type="download" />Download</a></Menu.Item>
                   <Menu.Item key="3"><a href="https://github.com/daft-thunk/electricVocode"><Icon type="github" />GitHub</a></Menu.Item>
                 </Menu>
               </div>
@@ -31,7 +31,7 @@ export default function App(){
           <div className="second-frame flex-around">
             <div>
               <h1>Look mom no hands!</h1>
-              <p>Simply tell Vocode what code snippet you would like generated and BAM, it's available in you clipboard. Vocode operates in the background and can be used in a variety of applications such as Visual Studio Code and Repl.it. </p>
+              <p>Simply tell Vocode what code snippet you would like generated and BAM, it's available in you clipboard. Vocode is operates in the background and can be used in a variety of applications such as Visual Studio Code and Repl.it. </p>
             </div>
             <div>
               <h1>Take care of yourself.</h1>
