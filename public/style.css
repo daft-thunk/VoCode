@@ -2,7 +2,6 @@
   box-sizing: border-box;
 }
 
-
 button {
   height: 25px;
   width: 50px;
@@ -24,11 +23,11 @@ input button {
   display: flex;
 }
 
-.logo-text{
+.logo-text {
   margin-left: 0.5em;
 }
 
-.logo-text h1{
+.logo-text h1 {
   color: teal;
 }
 
@@ -37,40 +36,50 @@ input button {
   justify-content: space-between;
 }
 
-.first-frame{
+.first-frame {
   height: 400px;
   width: 100vw;
-  background: #ADA996;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+  background: #ada996; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #eaeaea,
+    #dbdbdb,
+    #f2f2f2,
+    #ada996
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #eaeaea,
+    #dbdbdb,
+    #f2f2f2,
+    #ada996
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-
-.flex-around{
+.flex-around {
   display: flex;
   justify-content: space-between;
   padding-left: 5%;
   padding-right: 5%;
 }
 
-.flex-around div h1{
-  color: #30517b
+.flex-around div h1 {
+  color: #30517b;
 }
 
-.flex-around div{
+.flex-around div {
   text-align: center;
   flex-basis: 50%;
   color: #787f7f;
 }
 
-.blurb{
+.blurb {
   padding-left: 8%;
   padding-right: 8%;
   margin: 0.5em;
 }
 
-.blurb p{
+.blurb p {
   font-size: 16px;
 }
 
@@ -78,14 +87,38 @@ input button {
   margin: 0.5em;
 }
 
-.content-img img{
+.content-img img {
   border-radius: 15%;
+  max-width: 100%;
+  height: auto;
 }
 
-#intro{
+#intro {
   font-size: 23px;
   margin: 2em;
   padding-left: 10%;
   padding-right: 10%;
   text-align: center;
+}
+
+.ant-layout-header {
+  background-color: white !important;
+}
+
+@media screen and (max-width: 598px) {
+  .nav-responsive {
+    display: block;
+  }
+  .menu-item-responsive {
+    width: 90%;
+  }
+  #menu {
+    float: left;
+  }
+  .content-img {
+    display: none;
+  }
+  .blurb-responsive {
+    display: block;
+  }
 }
