@@ -33,7 +33,7 @@ export default function App(){
           <div className="flex-around">
             <div className="blurb">
               <h1>Use it Anywhere!</h1>
-              <p>Vocode was built as a hybrid application using Electron. This allows you to use call on vocode anywhere you like. On your desktop in editors like VS Code or Atom and in the browser in websites like Codepen or Repl, Vocode is always ready to help.</p>
+              <p>Vocode was built as a hybrid application using Electron. This allows the use of Vocode anywhere you like. On your desktop, in editors like VS Code or Atom, and on the browser, in websites like Codepen or Repl, Vocode is always ready to help.</p>
             </div>
             <div className="content-img"><img src="./images/inEditor.jpeg" /></div>
           </div>
