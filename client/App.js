@@ -1,15 +1,16 @@
 import React from 'react';
-import { Layout, Menu, Carousel, Icon } from 'antd';
+import { Layout, Menu, Icon } from 'antd';
+import Banner from './Banner'
 const { Header, Content, Footer } = Layout;
+
 
 
 export default function App(){
     return (
       <div className="App">
-        <Layout className="layout" style={{height: '100vh'}}>
         <Header>
           <div className="flex">
-            <div id="logo"> <div><img src="./vocodeLogo.png" /></div><div className="logo-text"><h1>Vocode</h1></div> </div>
+            <div id="logo"> <div><img src="./images/vocodeLogo.png" /></div><div className="logo-text"><h1>Vocode</h1></div> </div>
               <div id="menu">
                 <Menu
                   mode="horizontal"
@@ -22,31 +23,39 @@ export default function App(){
               </div>
           </div>
         </Header>
-        <Content>
-            <Carousel autoplay>
-              <div style={{height: '400px'}}><img src="https://images.unsplash.com/photo-1505238680356-667803448bb6?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=d39fe8df8ff9407562e2f89aec3c1318&auto=format&fit=crop&w=2550&q=80" /> </div>
-              <div style={{height: '400px'}}><img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=e5a31d03ddee66863a599421f792e07b&auto=format&fit=crop&w=2550&q=80" /> </div>
-              <div style={{height: '400px'}}><img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=96b6eb1c3bac5a2a548d7f90020bef2f&auto=format&fit=crop&w=2550&q=80" /> </div>
-            </Carousel>
-          <div className="second-frame flex-around">
-            <div>
-              <h1>Look mom no hands!</h1>
-              <p>Simply tell Vocode what code snippet you would like generated and BAM, it's available in you clipboard. Vocode is operates in the background and can be used in a variety of applications such as Visual Studio Code and Repl.it. </p>
+          <Banner />
+          <div id="intro">
+            <p>
+            Vocode is a desktop application that allows users to perform a number of useful commands with their voice. The app can populate a user's clipboard with a snippet (a text template) which can be pasted into any text editor. Users can add other user snippets, create new snippets, and manage all this information in one central place. The app also provides a user the ability to display websites in the app with a voice command.
+            </p>
+            <hr width="55%" />
+          </div>
+          <div className="flex-around">
+            <div className="blurb">
+              <h1>Use it Anywhere!</h1>
+              <p>Vocode was built as a hybrid application using Electron. This allows you to use call on vocode anywhere you like. On your desktop in editors like VS Code or Atom and in the browser in websites like Codepen or Repl, Vocode is always ready to help.</p>
             </div>
-            <div>
-              <h1>Take care of yourself.</h1>
-              <p>39% of surveyed programmers say injuries caused by repetitive typing have ruined their lives. Professionals who use Vocode are 57% less likely to incur injuries related to excessive typing. Vocode allows you to not only increase your productivity but also to increase you quality of life. </p>
-            </div>
-            <div>
-              <h1>Add your own!</h1>
-              <p>Vocode comes out of the box with useful macros with React and Node developers in mind. Not in that group? No problem! Vocode give you the ability to create your own dictionary of snippets. Simply add the command and Vocode will listen and execute your new snippet. </p>
+            <div className="content-img"><img src="./images/inEditor.jpeg" /></div>
+          </div>
+          <hr width="55%" />
+          <div className="flex-around">
+          <div className="content-img"><img src="./images/time.jpeg" /></div>
+            <div className="blurb">
+              <h1>Increase Productivity</h1>
+              <p> Developers spend a ton of time copying the same code over and over again. Boilerplate code that is already available seeks to solve this problem, but often ends up giving entire folders of files you don't need and can be confusing to navigate. Vocode solves this problem by allowing users to create their own snippets and having templates available in pieces instead of entire projects. </p>
             </div>
           </div>
-        </Content>
+          <hr width="55%" />
+          <div className="flex-around">
+            <div className="blurb">
+              <h1>Collaborative</h1>
+              <p>Vocode comes out of the box with useful templates that we use on a daily basis. Something else you need? No problem, users can add templates and find snippets they never knew they needed on the discover page. Whenever anyone in the community adds a new command other developers can check it out and see if it might be useful to them. </p>
+            </div>
+            <div className="content-img"><img src="./images/fistBump.jpeg" /></div>
+          </div>
         <Footer style={{ textAlign: 'center' }}>
           Daft Thunk Inc <a href="https://github.com/daft-thunk"><Icon type="github" /></a> <a href="https://www.facebook.com/daft.thunk.9"><Icon type="facebook" /></a> <a href="https://twitter.com/daft_thunk"><Icon type="twitter" /></a>
         </Footer>
-      </Layout>
       </div>
     );
   }
