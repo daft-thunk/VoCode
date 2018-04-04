@@ -65,8 +65,6 @@ router.post('/:id/snippets/:snippetId', (req, res, next) => {
 });
 
 router.delete('/:id/snippets/:snippetId', (req, res, next) => {
-  // console.log('snippetId', req.params.snippetId)
-  // console.log('userId', req.params.id)
   SnippetUser.destroy({where: {userId: req.params.id, snippetId: req.params.snippetId}})
     .then(() => res.sendStatus(204))
     .catch(next);

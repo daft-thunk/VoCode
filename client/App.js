@@ -9,13 +9,12 @@ export default function App() {
       <Header>
         <div className="flex nav-responsive">
           <div id="logo">
-            {' '}
             <div>
               <img src="./images/vocodeLogo.png" />
             </div>
             <div className="logo-text">
               <h1>Vocode</h1>
-            </div>{' '}
+            </div>
           </div>
           <div id="menu">
             <Menu mode="horizontal" style={{ lineHeight: '64px' }}>
@@ -93,7 +92,7 @@ export default function App() {
             templates and find snippets they never knew they needed on the
             discover page. Whenever anyone in the community adds a new command
             other developers can check it out and see if it might be useful to
-            them.{' '}
+            them.
           </p>
         </div>
         <div className="content-img">
@@ -101,13 +100,13 @@ export default function App() {
         </div>
       </div>
       <Footer style={{ textAlign: 'center' }}>
-        Daft Thunk Inc{' '}
+        Daft Thunk Inc
         <a href="https://github.com/daft-thunk">
           <Icon type="github" />
-        </a>{' '}
+        </a>
         <a href="https://www.facebook.com/daft.thunk.9">
           <Icon type="facebook" />
-        </a>{' '}
+        </a>
         <a href="https://twitter.com/daft_thunk">
           <Icon type="twitter" />
         </a>
