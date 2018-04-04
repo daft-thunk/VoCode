@@ -8,27 +8,6 @@ const db = require('./server/db/db');
 const Promise = require('bluebird');
 
 function generateSnippets() {
-  // let data = [
-  //   {
-  //     command: 'hello',
-  //     code: 'Hello World!',
-  //     description: "A short 'hello world' function"
-  //   },
-  //   {
-  //     command: 'Jake',
-  //     code: 'const Jake = coding',
-  //     description: 'An eloquent snippet'
-  //   },
-  //   {
-  //     command: 'switch',
-  //     code: "switch(var) {\n\tcase 'case1':\n\t\tconsole.log('case1')\n}",
-  //     description: 'switch statement boilerplate'
-  //   },
-  //   {
-  //     command: 'random',
-  //     code: 'Math.rand()'
-  //   }
-  // ];
   let data = [];
   data = data.concat(snippetSamples);
   return data.map(snippet => {
@@ -70,7 +49,6 @@ function createUsers() {
 
 async function associateSnippets() {
   const snippets = await Snippet.findAll();
-  // console.log(users);
   await snippets[0].addUsers([1, 2, 3]);
   await snippets[0].update({ creatorId: 1 });
   await snippets[1].addUsers([2, 3, 4]);

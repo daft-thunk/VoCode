@@ -7,6 +7,7 @@
     "artyom.js": "^1.0.6",
     "axios": "^0.18.0",
     "body-parser": "^1.18.2",
+    "chai": "^4.1.2",
     "codemirror": "^5.35.0",
     "connect-session-sequelize": "^5.2.1",
     "cookie-parser": "^1.4.3",
@@ -30,6 +31,7 @@
     "sequelize": "^4.37.3",
     "socket.io": "^2.0.4",
     "style-loader": "^0.20.3",
+    "supertest": "^3.0.0",
     "webpack": "^4.1.1",
     "webpack-cli": "^2.0.12"
   },
@@ -38,8 +40,8 @@
     "build-client-watch": "webpack -w",
     "start": "node server",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
+    "seed-test": "NODE_ENV='test' node seed.js",
+    "test": "NODE_ENV='test' mocha ./test/*/*.spec.js --require @babel/polyfill --require @babel/register",
     "start-dev": "NODE_ENV='development' npm run build-client-watch & npm run start-server",
     "start-server": "nodemon server -e html,js,scss --ignore public --ignore client"
   },
