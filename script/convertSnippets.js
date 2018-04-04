@@ -5,9 +5,7 @@ const arr = [];
 
 fs.readdirSync(testFolder).forEach(file => {
   const name = file.slice(0, -3);
-  // console.log('NAME:',name);
   const contents = fs.readFileSync(`${testFolder}/${file}`, 'utf8');
-  // console.log('CONTENTS:', contents)
   const descIdx = contents.indexOf('```js');
   arr.push({
     command: name,
@@ -15,8 +13,6 @@ fs.readdirSync(testFolder).forEach(file => {
     description: contents.slice(0, descIdx)
   });
 });
-
-// console.log(arr)
 
 require('fs').writeFile('./script/snippets.json', JSON.stringify(arr), function(
   err
