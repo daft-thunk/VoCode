@@ -5,7 +5,7 @@
   "dependencies": {
     "antd": "^3.3.3",
     "artyom.js": "^1.0.6",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "body-parser": "^1.18.2",
     "chai": "^4.1.2",
     "codemirror": "^5.35.0",
